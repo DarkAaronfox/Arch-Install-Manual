@@ -225,7 +225,7 @@ for the boot options:
 sudo nano /boot/loader/entries/arch.conf
 ```
 
-add `nvidia-drm.modeset=1` to a new line and after save, exit
+add `nvidia-drm.modeset=1` to the end of the last line, after save, exit
 
 NVIDIA Pacman Hook:
 
