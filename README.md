@@ -195,10 +195,12 @@ echo "options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/sda3) rw" >> /boot
 ### 7.8 Networking
 Network Services
 ```
-sudo pacman -S dhcpcd networkmanager
-ip link (to check for the name of it like enp0s3)
+sudo pacman -S dhcpcd
+ip link (to check for the name of it, like enp0s3)
 sudo systemctl enable dhcpcd@enp0s3.service
+sudo pacman -S networkmanager
 sudo systemctl enable NetworkManager.service
+
 ```
 
 ### 7.9 Graphics
