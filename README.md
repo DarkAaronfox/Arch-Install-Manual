@@ -9,35 +9,35 @@ This is a step-by-step guide for a manual Arch Linux installation, based on a cu
 
 ### 0.1 Keymap
 
-List of the keymaps
+> List of the keymaps
 ```
 localectl list-keymaps
 ```
 
-Example to set the Hungarian keyboard layout
+> Example to set the Hungarian keyboard layout
 ```
 loadkeys hu
 ```
 
-### 0.2 Timezone (Optional)
+### 0.2 Timezone
 
-List of the timezones
+> List of the timezones
 ```
 timedatectl list-timezones
 ```
 
-Example to set the Europe/Budapest timezone
+> Example to set the Europe/Budapest timezone
 ```
 timedatectl set-timezone Europe/Budapest
 ```
 ## 1. Disk Partitioning
-> Identify your drive using lsblk or fdisk -l. This guide assumes `/dev/sda`.
+> Identify your drive using `lsblk` or `fdisk -l`. This guide assumes `/dev/sda`.
 
 Use this to start editing the disk
 ```
 fdisk /dev/sda
 ```
-> Inside fdisk commands:
+> Inside `fdisk` commands:
 
 `g` - (Create a new GPT partition table.)
 
@@ -68,7 +68,7 @@ mount --mkdir /dev/sda1 /mnt/boot
 swapon /dev/sda2
 ```
 
-## 4. System Installation, Mirrorlist Optimization
+## 4. Mirrorlist Optimization
 
 ```
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
@@ -90,6 +90,7 @@ genfstab -U -p /mnt >> /mnt/etc/fstab
 ```
 nano /mnt/etc/fstab
 ```
+> exit
 
 ## 7. System Configuration (Chroot)
 ```
@@ -99,7 +100,7 @@ sudo pacman -S nano bash-completion
 
 ### 7.1 Localization
 
-uncomment (#) the `en_US.UTF-8 UTF-8` for English - US language in
+uncomment (#) the `en_US.UTF-8 UTF-8` line for the English - US language in
 ```
 nano /etc/locale.gen
 ```
@@ -195,6 +196,7 @@ echo "options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/sda3) rw" >> /boot
 Network Services
 ```
 sudo pacman -S dhcpcd networkmanager
+ip link (to check for the name of it like enp0s3)
 sudo systemctl enable dhcpcd@enp0s3.service
 sudo systemctl enable NetworkManager.service
 ```
@@ -216,10 +218,12 @@ MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
 
 save, exit
 
-for the boot options, add `nvidia-drm.modeset=1` to a new line:
+for the boot options:
 ```
 sudo nano /boot/loader/entries/arch.conf
 ```
+
+add `nvidia-drm.modeset=1` to a new line and after save, exit
 
 NVIDIA Pacman Hook:
 
