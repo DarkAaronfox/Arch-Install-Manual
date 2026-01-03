@@ -231,7 +231,7 @@ NVIDIA Pacman Hook:
 
 Create 
 ```
-sudo mkdir /etc/pacman.d/hooks/nvidia.hook
+sudo mkdir /etc/pacman.d/hooks/
 ```
 
 Edit
