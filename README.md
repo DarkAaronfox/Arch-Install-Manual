@@ -19,7 +19,7 @@ localectl list-keymaps
 loadkeys hu
 ```
 
-### 0.2 Timezone
+### 0.2 Timezone (Optional)
 
 > List of the timezones
 ```
