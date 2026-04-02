@@ -200,7 +200,6 @@ ip link (to check for the name of it, like enp0s3)
 sudo systemctl enable dhcpcd@enp0s3.service
 sudo pacman -S networkmanager
 sudo systemctl enable NetworkManager.service
-
 ```
 
 ### 7.9 Graphics
